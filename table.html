@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calorie Tracker</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+
+</head>
+<body>
+    <div class="container">
+        <h1>Weekly Calorie Tracker</h1>
+        <div class="row">
+            <!-- Monday to Thursday -->
+            <div class="col-md-3">
+                    <h2>Monday</h2>
+                    <div class="meal">
+                        <label for="mondayBreakfast">Breakfast:</label>
+                        <select id="mondayBreakfast" name="mondayBreakfast"></select>
+                    </div>
+                    <div class="meal">
+                        <label for="mondayLunch">Lunch:</label>
+                        <select id="mondayLunch" name="mondayLunch"></select>
+                    </div>
+                    <div class="meal">
+                        <label for="mondayDinner">Dinner:</label>
+                        <select id="mondayDinner" name="mondayDinner"></select>
+                    </div>
+
+            </div>
+            <div class="col-md-3">
+                <h2>Tuesday</h2>
+                <div class="meal">
+                    <label for="tuesdayBreakfast">Breakfast:</label>
+                    <select id="tuesdayBreakfast" name="tuesdayBreakfast"></select>
+                </div>
+                <div class="meal">
+                    <label for="tuesdayLunch">Lunch:</label>
+                    <select id="tuesdayLunch" name="tuesdayLunch"></select>
+                </div>
+                <div class="meal">
+                    <label for="tuesdayDinner">Dinner:</label>
+                    <select id="tuesdayDinner" name="tuesdayDinner"></select>
+                </div>
+            </div>
+            <div class="col-md-3">
+                    <h2>Wednesday</h2>
+                    <div class="meal">
+                        <label for="wednesdayBreakfast">Breakfast:</label>
+                        <select id="wednesdayBreakfast" name="wednesdayBreakfast"></select>
+                    </div>
+                    <div class="meal">
+                        <label for="wednesdayLunch">Lunch:</label>
+                        <select id="wednesdayLunch" name="wednesdayLunch"></select>
+                    </div>
+                    <div class="meal">
+                        <label for="wednesdayDinner">Dinner:</label>
+                        <select id="wednesdayDinner" name="wednesdayDinner"></select>
+                    </div>
+            </div>
+            <div class="col-md-3">
+                <h2>Thursday</h2>
+                <div class="meal">
+                    <label for="thursdayBreakfast">Breakfast:</label>
+                    <select id="thursdayBreakfast" name="thursdayBreakfast"></select>
+                </div>
+                <div class="meal">
+                    <label for="thursdayLunch">Lunch:</label>
+                    <select id="thursdayLunch" name="thursdayLunch"></select>
+                </div>
+                <div class="meal">
+                    <label for="thursdayDinner">Dinner:</label>
+                    <select id="thursdayDinner" name="thursdayDinner"></select>
+                </div>
+        </div>
+        </div>
+        <div class="row">
+            <!-- Friday to Sunday -->
+            <div class="col-md-4">
+                    <h2>Friday</h2>
+                    <div class="meal">
+                        <label for="fridayBreakfast">Breakfast:</label>
+                        <select id="fridayBreakfast" name="fridayBreakfast"></select>
+                    </div>
+                    <div class="meal">
+                        <label for="fridayLunch">Lunch:</label>
+                        <select id="fridayLunch" name="fridayLunch"></select>
+                    </div>
+                    <div class="meal">
+                        <label for="fridayDinner">Dinner:</label>
+                        <select id="fridayDinner" name="fridayDinner"></select>
+                    </div>
+            </div>
+            <div class="col-md-4">
+                    <h2>Saturday</h2>
+                    <div class="meal">
+                        <label for="saturdayBreakfast">Breakfast:</label>
+                        <select id="saturdayBreakfast" name="saturdayBreakfast"></select>
+                    </div>
+                    <div class="meal">
+                        <label for="saturdayLunch">Lunch:</label>
+                        <select id="saturdayLunch" name="saturdayLunch"></select>
+                    </div>
+                    <div class="meal">
+                        <label for="saturdayDinner">Dinner:</label>
+                        <select id="saturdayDinner" name="saturdayDinner"></select>
+                    </div>
+            </div>
+            <div class="col-md-4">
+                    <h2>Sunday</h2>
+                    <div class="meal">
+                        <label for="sundayBreakfast">Breakfast:</label>
+                        <select id="sundayBreakfast" name="sundayBreakfast"></select>
+                    </div>
+                    <div class="meal">
+                        <label for="sundayLunch">Lunch:</label>
+                        <select id="sundayLunch" name="sundayLunch"></select>
+                    </div>
+                    <div class="meal">
+                        <label for="sundayDinner">Dinner:</label>
+                        <select id="sundayDinner" name="sundayDinner"></select>
+                    </div>
+            </div>
+        </div>
+        <button id="analyzeBtn">Analyze</button>
+        <canvas id="myChart"></canvas> <!-- Placeholder for the chart -->
+    </div>
+
+    <!-- Bootstrap JS and jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
