@@ -6,8 +6,8 @@ body {
 
 .container {
     max-width: 900px;
-    margin: 20px auto; /* Reduced top and bottom margin */
-    padding: 0px; /* Reduced padding */
+    margin: 20px auto; 
+    padding: 0px;
 }
 
 h1, h2 {
@@ -21,9 +21,9 @@ h1, h2 {
 }
 
 .day-card {
-    width: calc(50% - 20px);
+    width: 100;
     margin-bottom: 20px;
-    background-color: #f9f9f9;
+    background-color: #448fa3; /* Blue color */
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -49,7 +49,7 @@ button {
     display: block;
     margin: 0 auto;
     padding: 10px 20px;
-    background-color: #007bff;
+    background-color: #68c5db; /* Light blue color */
     color: #fff;
     border: none;
     border-radius: 5px;
@@ -57,10 +57,10 @@ button {
 }
 
 button:hover {
-    background-color: #0056b3;
+    background-color: #0197f6; /* Dark blue color */
 }
 
-.row{
+.row {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
