@@ -106,3 +106,117 @@ function updateChart(actualCalories) {
         }
     });
 }
+
+// Constants for age, height, and weight
+const age = 20; // in years
+const height = 180; // in cm
+const weight = 72; // in kg
+
+// Activity level (choose one): sedentary, moderately_active, active, very_active
+const activityLevel = 'moderately_active';
+
+// Function to calculate Basal Metabolic Rate (BMR) using Mifflin-St Jeor equation
+function calculateBMR(age, height, weight) {
+    return 10 * weight + 6.25 * height - 5 * age + 5;
+}
+
+// Adjust BMR based on activity level
+function adjustBMR(bmr, activityLevel) {
+    switch (activityLevel) {
+        case 'sedentary':
+            return bmr * 1.2;
+        case 'moderately_active':
+            return bmr * 1.375;
+        case 'active':
+            return bmr * 1.55;
+        case 'very_active':
+            return bmr * 1.725;
+        default:
+            return null; // Invalid activity level
+    }
+}
+
+// Function to calculate recommended calorie intake for each day of the week
+function calculateRecommendedCalories(age, height, weight, activityLevel) {
+    const bmr = calculateBMR(age, height, weight);
+    const adjustedBMR = adjustBMR(bmr, activityLevel);
+    if (adjustedBMR !== null) {
+        return adjustedBMR / 7; // Divide by 7 to get daily intake
+    } else {
+        return null; // Invalid activity level
+    }
+}
+
+// Calculate recommended calorie intake for each day of the week
+const recommendedCaloriesPerDay = calculateRecommendedCalories(age, height, weight, activityLevel);
+
+// Function to generate recommended intake data for each day of the week
+function generateRecommendedIntakeData(recommendedCaloriesPerDay) {
+    const recommendedIntakeData = [];
+    for (let i = 0; i < 7; i++) {
+        recommendedIntakeData.push(recommendedCaloriesPerDay);
+    }
+    return recommendedIntakeData;
+}
+
+// Generate recommended intake data for each day of the week
+const recommendedIntakeData = generateRecommendedIntakeData(recommendedCaloriesPerDay);
+
+// Function to update the chart with actual and recommended calorie consumption data
+function updateChart(actualCalories, recommendedIntake) {
+    // Destroy the existing chart if it exists
+    if (window.myChart instanceof Chart) {
+        window.myChart.destroy();
+    }
+
+    // Update the chart
+    const ctx = document.getElementById('myChart').getContext('2d');
+    window.myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+            datasets: [{
+                label: 'Actual Intake',
+                data: actualCalories,
+                backgroundColor: 'rgba(54, 162, 235, 0.5)',
+                borderColor: 'rgba(54, 162, 235, 1)',
+                borderWidth: 1
+            }, {
+                label: 'Recommended Intake',
+                data: recommendedIntake,
+                type: 'line',
+                fill: false,
+                borderColor: 'rgba(255, 99, 132, 1)',
+                borderWidth: 2
+            }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            }
+        }
+    });
+}
+
+// Function to display the total calorie consumption for a week
+function displayTotalCalories() {
+    const totalCaloriesPerDay = [];
+    // Iterate over each day of the week
+    for (let i = 0; i < 7; i++) {
+        const dayPrefix = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'][i];
+        const breakfastSelect = document.getElementById(dayPrefix + 'Breakfast');
+        const lunchSelect = document.getElementById(dayPrefix + 'Lunch');
+        const dinnerSelect = document.getElementById(dayPrefix + 'Dinner');
+        const totalCalories = calculateTotalCalories(breakfastSelect.value, lunchSelect.value, dinnerSelect.value);
+        totalCaloriesPerDay.push(totalCalories);
+    }
+    console.log('Total calorie consumption for the week:', totalCaloriesPerDay);
+    updateChart(totalCaloriesPerDay, recommendedIntakeData);
+}
+
+// Event listener for the 'Analyze' button click
+document.getElementById('analyzeBtn').addEventListener('click', displayTotalCalories);
